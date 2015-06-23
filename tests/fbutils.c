@@ -205,6 +205,25 @@ void put_cross(int x, int y, unsigned colidx)
 #endif
 }
 
+void put_crosshairs(int x, int y, unsigned colidx)
+{
+
+	line (x-50, y, x - 2, y, colidx);
+	line (x + 2, y, x+50, y, colidx);
+	line (x, y-50, x, y - 2, colidx);
+	line (x, y + 2, x, y+50, colidx);
+
+	line (x - 6, y - 9, x - 9, y - 9, colidx + 1);
+	line (x - 9, y - 8, x - 9, y - 6, colidx + 1);
+	line (x - 9, y + 6, x - 9, y + 9, colidx + 1);
+	line (x - 8, y + 9, x - 6, y + 9, colidx + 1);
+	line (x + 6, y + 9, x + 9, y + 9, colidx + 1);
+	line (x + 9, y + 8, x + 9, y + 6, colidx + 1);
+	line (x + 9, y - 6, x + 9, y - 9, colidx + 1);
+	line (x + 8, y - 9, x + 6, y - 9, colidx + 1);
+
+}
+
 void put_char(int x, int y, int c, int colidx)
 {
 	int i,j,bits;
@@ -227,7 +246,7 @@ void put_string(int x, int y, char *s, unsigned colidx)
 void put_string_center(int x, int y, char *s, unsigned colidx)
 {
 	size_t sl = strlen (s);
-        put_string (x - (sl / 2) * font_vga_8x8.width,
+        put_string (x - (sl * font_vga_8x8.width / 2),
                     y - font_vga_8x8.height / 2, s, colidx);
 }
 
