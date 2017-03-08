@@ -29,6 +29,9 @@ extern "C" {
     #define TSEXPORT
     #define TSLOCAL
   #endif
+  #ifndef ABS_MT_SLOT /* < 2.6.36 kernel headers */
+    # define ABS_MT_SLOT	0x2f /* MT slot being modified */
+  #endif
 #endif
 
 #ifdef TSLIB_INTERNAL
