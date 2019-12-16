@@ -42,18 +42,6 @@ static int palette[] = {
 #define NR_COLORS (sizeof(palette) / sizeof(palette[0]))
 
 
-unsigned int getticks()
-{
-	static struct timeval ticks = {0};
-	static unsigned int cling = 0;
-
-	gettimeofday(&ticks, NULL);
-	cling = ticks.tv_sec * 1000;
-	cling += ticks.tv_usec / 1000;
-	
-	return cling;
-}
-
 static void sig(int sig)
 {
 	close_framebuffer();

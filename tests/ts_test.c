@@ -139,20 +139,6 @@ int ts_test(void)
 		setcolor(i, palette[i]);
 
 	/* Initialize buttons */
-<<<<<<< HEAD
-	memset(&buttons, 0, sizeof(buttons));
-	buttons[0].w = buttons[1].w = buttons[2].w = xres / 4;
-	buttons[0].h = buttons[1].h = buttons[2].h = 20;
-	buttons[0].x = 0;
-	buttons[1].x = (3 * xres) / 8;
-	buttons[2].x = (3 * xres) / 4;
-	buttons[0].y = buttons[1].y = buttons[2].y = 10;
-	buttons[0].text = "Drag";
-	buttons[1].text = "Draw";
-	buttons[2].text = "Quit";
-
-	refresh_screen();
-=======
 	nr_buttons = 3;
 	memset (&buttons, 0, sizeof (buttons));
 	buttons [0].w = buttons [1].w = buttons [2].w = xres / 4;
@@ -166,7 +152,6 @@ int ts_test(void)
 	buttons [2].text = "Quit";
 
 	refresh_screen ();
->>>>>>> tests: add touchscreen calibration verification
 
 	while (1) {
 		struct ts_sample samp;
@@ -194,13 +179,8 @@ int ts_test(void)
 		if (ret != 1)
 			continue;
 
-<<<<<<< HEAD
-		for (i = 0; i < NR_BUTTONS; i++)
-			if (button_handle(&buttons[i], samp.x, samp.y, samp.pressure))
-=======
 		for (i = 0; i < nr_buttons; i++)
 			if (button_handle(&buttons [i], samp.x, samp.y, samp.pressure))
->>>>>>> tests: add touchscreen calibration verification
 				switch (i) {
 				case 0:
 					mode = 0;
